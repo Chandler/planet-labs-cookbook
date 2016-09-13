@@ -302,4 +302,4 @@ This visualizes the footprint of the 3rd item in the search
 
 ![](images/geojson2.png)
 
-###Next section: [Activating and Downloading Assets](../activation_tutorial.md)
+###Next section: [Activating and Downloading Assets](intro_part_2_activation.md)

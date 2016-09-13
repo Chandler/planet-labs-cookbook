@@ -1,6 +1,6 @@
 # Planet Labs API v1 Walkthrough, Part 2
 
-See [part 1](README.md) for instructions on using this guide and acquiring a Planet Labs API key.
+See [part 1](intro_part_1_search.md) for instructions on using this guide and acquiring a Planet Labs API key.
 
 This guide will walk you through some best practices for downloading your image files.
 

@@ -2,13 +2,19 @@ import os
 import requests
 from requests.auth import HTTPBasicAuth
 
-# our demo filter that filtrs by geometry, date and cloud cover
-from demo_filters import composed_filter
+# grab a whole week
+date_range_filter = {
+  "type": "DateRangeFilter",
+  "field_name": "acquired",
+  "config": {
+    "gte": "2016-07-01T00:00:00.000Z",
+    "lte": "2016-07-07T00:00:00.000Z"
+  }
+}
 
-# Search API request object
 search_endpoint_request = {
   "item_types": ["REOrthoTile"],
-  "filter": composed_filter
+  "filter": date_range_filter
 }
 
 result = \

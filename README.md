@@ -21,11 +21,13 @@ export PLANET_API_KEY=a3a64774d30c4749826b6be445489d3b # (not a real key)
 
 ## Development Environment
 
-These tutorials primarily use the following tools:
+These tutorials use the following tools:
  
  * Python 2
+ * [requests](http://docs.python-requests.org/en/master/) - (pip install requests)
  * cURL
  * [jq](https://stedolan.github.io/jq/) - a very useful command line tool for maniuplating and displaying JSON.
+ * (optional) [geojsonio-cli](https://github.com/mapbox/geojsonio-cli) - quickly view geometries in geojson.io
 
 Most examples pipe the JSON api output to jq and filter for a specific field. You may want to also remove the jq filter to familarize yourelf with the complete API objects.
 

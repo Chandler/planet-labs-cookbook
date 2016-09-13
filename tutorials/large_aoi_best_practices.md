@@ -10,6 +10,10 @@ Using the Planet API against a large AOI can be tricky, you will find that you q
 
 
 ## Paginate Through a Search
+If there are more than 250 items in your search result you will need to paginate to see them all.
+
+
+[examples/paginate.py](../examples/paginate.py)
 
 ## Bulk Activate
 

@@ -25,6 +25,8 @@ This tutorial primarily uses the following tools:
  * Python 2
  * [jq](https://stedolan.github.io/jq/) - a very useful command line tool for maniuplating and displaying JSON.
 
+Most examples pipe the JSON api output to jq and filter for a specific field. You may want to also remove the jq filter to familarize yourelf with the complete API objects.
+
 
 <a name="api"></a>
 ## API Access
@@ -300,6 +302,6 @@ python examples/search_endpoint.py | jq '.features[3].geometry' | geojsonio
 
 This visualizes the footprint of the 3rd item in the search
 
-![](images/geojson2.png)
+![](../images/geojson2.png)
 
 ###Next section: [Activating and Downloading Assets](intro_part_2_activation.md)

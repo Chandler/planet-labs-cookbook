@@ -2,7 +2,7 @@ import os
 import requests
 from requests.auth import HTTPBasicAuth
 
-# our demo filter that filtrs by geometry, date and cloud cover
+# our demo filter that filters by geometry, date and cloud cover
 from demo_filters import composed_filter
 
 # Stats API request object

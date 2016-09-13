@@ -7,7 +7,7 @@
 
 * [API v1 Walkthrough Part 1, Search](tutorials/intro_part_1_search.md)
 *  [API v1 Walkthrough Part 2, Activation and Downloading](tutorials/intro_part_2_activation.md) 
-*  [Large Area Best Practices](tutorials/large_aoi_best_practices.md)
+*  [Large Area Best Practices](tutorials/large_aoi_best_practices.md) (TODO)
 
 ## API Access
 These tutorials assume that you have a Planet API key. Currently anyone can sign up for a limited access key at [planet.com/products/open-california](https://www.planet.com/products/open-california/). This will give you access to free imagery in California only. (Note, Open California approval is not instantanious)

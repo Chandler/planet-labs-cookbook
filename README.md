@@ -2,33 +2,34 @@
 # Planet Labs API v1 Walkthrough, Part 1
 
 
-* [Developer Environment](#example)
-* [API Access](#example2)
-* [API Concept: ItemTypes](#third-example)
-* [Find an Area of Interest]()
-* [Search Filters]()
-* [Stats Endpoint]()
-* [Search Endpoint]()
+* [Development Environment](#devenv)
+* [API Access](#api)
+* [ItemTypes](#item-types)
+* [Find an Area of Interest](#aoi)
+* [Search Filters](#search)
+* [Stats Endpoint](#stats)
+* [Search Endpoint](#search)
 
-This tutorial will walk you through how to search for images using the Planet Labs v1 API. 
+This tutorial will walk you through how to search for imagery using the Planet Labs v1 API. 
+
+This guide is all about image metadata. When you're done, see part 2 to learn how to start downloading the actual binary image files.
+[Part 2: Activation and Downloading Assets](activation_tutorial.md)
 
 
 
-## Devopment Environment
+<a name="devenv"></a>
+## Development Environment
 
-This tutorial uses the following tools:
+This tutorial primarily uses the following tools:
  
  * Python 2
- * [jq]() - a very useful command line tool for maniuplating and displaying JSON.
+ * [jq](https://stedolan.github.io/jq/) - a very useful command line tool for maniuplating and displaying JSON.
 
 
-
-
-
-
+<a name="api"></a>
 ## API Access
 
-This tutorial assumes that you have a Planet API key, currently anyone can sign up for a key at [planet.com/products/open-california](https://www.planet.com/products/open-california/) that will give you access to free imagery in California only.
+This tutorial assumes that you have a Planet API key, currently anyone can sign up for a key at [planet.com/products/open-california](https://www.planet.com/products/open-california/) that will give you access to free imagery in California only. (Note, Open California approval is not instantanious)
 
 Once you have an API key, add the key to your shell environment:
 
@@ -37,8 +38,8 @@ Once you have an API key, add the key to your shell environment:
 export PLANET_API_KEY=a3a64774d30c4749826b6be445489d3b #(not a real key)
 ```
 
-
-## API Concept: ItemTypes
+<a name="itemtypes"></a>
+## ItemTypes
 The Planet API brings together different classes of imagery, some represent different satellites, some represent different formats, sometimes it's both. Each class of imagery is identified by its "ItemType". 
 
 Examples of ItemTypes are
@@ -55,7 +56,7 @@ We can see what ItemTypes are avaliable to our API key with our first API query
 "PSOrthoTile"
 ```
 
-
+<a name="aoi"></a>
 ## Select an Area of Interest (AOI)
 
 You can use [geojson.io](http://geojson.io/]) to get geometry coordinates for an area that interests you, start small : ) 
@@ -67,10 +68,10 @@ Here's an AOI around a Reservoir near Redding California
 The highlighted JSON is a [GeoJSON geometry object](http://geojson.org/geojson-spec.html#geometry-objects) that we can use as a filter in the Planet API.
 
 
+<a name="filters"></a>
+## Filters
 
-## Search Filters
-
-Several Planet API endpoints operate on search filters, which can be used to narrow down imagery by a variety of attributes like location, cloud coverage %, acquisition date etc.
+Several Planet API endpoints operate on filters, which can be used to narrow down imagery by a variety of attributes like location, cloud coverage %, acquisition date etc.
 
 At this point, it will be easier if we start using Python to interact with the API. The runnable source file for all code snippets will be linked above each snippet.
 
@@ -142,7 +143,7 @@ composed_filter = {
 }
 ```
 
-
+<a name="stats"></a>
 ## Stats Endpoint
 
 A good first step would be to use our filter to query the stats endpoint, this will give us a date
@@ -209,6 +210,7 @@ Run the script:
 
 Nice! We can see that in July 2016, RapidEye satellites imaged the area on 5 different days.
 
+<a name="search"></a>
 ## Search Endpoint
 
 Now let's do a search, this takes the same filter object as the stats endpoint but returns complete metadata objects about the matching items.

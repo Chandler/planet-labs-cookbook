@@ -1,9 +1,8 @@
 
+![](../images/header2.jpg)
 # Planet Labs API v1 Walkthrough, Part 1
 
 
-* [Development Environment](#devenv)
-* [API Access](#api)
 * [ItemTypes](#item-types)
 * [Find an Area of Interest](#aoi)
 * [Search Filters](#search)
@@ -16,29 +15,8 @@ This guide is all about image metadata. When you're done, see part 2 to learn ho
 [Part 2: Activation and Downloading Assets](intro_part_2_activation.md)
 
 
+If you haven't already, see the [README](../README.md) for info on how to aquire an API key and setup your dev environment. jq is a particularly important tool for these examples.
 
-<a name="devenv"></a>
-## Development Environment
-
-This tutorial primarily uses the following tools:
- 
- * Python 2
- * [jq](https://stedolan.github.io/jq/) - a very useful command line tool for maniuplating and displaying JSON.
-
-Most examples pipe the JSON api output to jq and filter for a specific field. You may want to also remove the jq filter to familarize yourelf with the complete API objects.
-
-
-<a name="api"></a>
-## API Access
-
-This tutorial assumes that you have a Planet API key, currently anyone can sign up for a limited access key at [planet.com/products/open-california](https://www.planet.com/products/open-california/). This will give you access to free imagery in California only. (Note, Open California approval is not instantanious)
-
-Once you have an API key, add the key to your shell environment:
-
-
-```sh
-export PLANET_API_KEY=a3a64774d30c4749826b6be445489d3b #(not a real key)
-```
 
 <a name="itemtypes"></a>
 ## ItemTypes

@@ -1,6 +1,5 @@
 import os
 import requests
-from requests.auth import HTTPBasicAuth
 
 item_id = "20160707_195147_1057916_RapidEye-1"
 item_type = "REOrthoTile"

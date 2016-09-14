@@ -55,7 +55,7 @@ cloud_cover_filter = {
 
 # create a filter that combines our geo and date filters
 # could also use an "OrFilter"
-composed_filter = {
+redding_reservoir = {
   "type": "AndFilter",
   "config": [geometry_filter, date_range_filter, cloud_cover_filter]
 }

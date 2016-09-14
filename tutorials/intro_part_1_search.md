@@ -117,7 +117,7 @@ cloud_cover_filter = {
 
 # create a filter that combines our geo and date filters
 # could also use an "OrFilter"
-composed_filter = {
+redding_reservoir = {
   "type": "AndFilter",
   "config": [geometry_filter, date_range_filter, cloud_cover_filter]
 }
@@ -137,13 +137,13 @@ import requests
 from requests.auth import HTTPBasicAuth
 
 # our demo filter that filters by geometry, date and cloud cover
-from demo_filters import composed_filter
+from demo_filters import redding_reservoir
 
 # Stats API request object
 stats_endpoint_request = {
   "interval": "day",
   "item_types": ["REOrthoTile"],
-  "filter": composed_filter
+  "filter": redding_reservoir
 }
 
 # fire off the POST request
@@ -205,12 +205,12 @@ import requests
 from requests.auth import HTTPBasicAuth
 
 # our demo filter that filters by geometry, date and cloud cover
-from demo_filters import composed_filter
+from demo_filters import redding_reservoir
 
 # Search API request object
 search_endpoint_request = {
   "item_types": ["REOrthoTile"],
-  "filter": composed_filter
+  "filter": redding_reservoir
 }
 
 result = \

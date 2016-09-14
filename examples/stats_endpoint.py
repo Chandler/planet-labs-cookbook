@@ -3,13 +3,13 @@ import requests
 from requests.auth import HTTPBasicAuth
 
 # our demo filter that filters by geometry, date and cloud cover
-from demo_filters import composed_filter
+from demo_filters import redding_reservoir
 
 # Stats API request object
 stats_endpoint_request = {
   "interval": "day",
   "item_types": ["REOrthoTile"],
-  "filter": composed_filter
+  "filter": redding_reservoir
 }
 
 # fire off the POST request

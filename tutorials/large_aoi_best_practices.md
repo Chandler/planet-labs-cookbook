@@ -151,6 +151,8 @@ The Planet API responds with ```HTTP 402``` when your request has been denied du
 The following example shows you how to identify a rate limit error and then retry with an exponential backoff. An exponential backoff means that you wait for exponentially longer intervals between each retry of a single failing request.
 
 
+The retrying library provides a decorator that you can add to any method to give it various types of retries.
+
 [examples/rate_limit.py](../examples/rate_limit.py)
 
 ```python
@@ -163,6 +165,8 @@ from retrying import retry
 session = requests.Session()
 session.auth = (os.environ['PLANET_API_KEY'], '')
 
+# "Wait 2^x * 1000 milliseconds between each retry, up to 10
+# seconds, then 10 seconds afterwards"
 @retry(
     wait_exponential_multiplier=1000,
     wait_exponential_max=10000)
@@ -174,6 +178,7 @@ def activate_item(item_id):
         ("https://api.planet.com/data/v1/item-types/" +
         "{}/items/{}/assets/").format("PSOrthoTile", item_id))
 
+	 # raise an exception to trigger the retry
     if item.status_code == 402:
         raise Exception("rate limit error")
 

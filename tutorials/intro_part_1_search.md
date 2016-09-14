@@ -36,12 +36,14 @@ We can see what ItemTypes are avaliable to our API key with our first API query
 "PSOrthoTile"
 ```
 
+These refer to RapidEye and Planetscope [ortho tiles](https://www.planet.com/docs/spec-sheets/sat-imagery/#overview), respectively.
+
 <a name="aoi"></a>
 ## Select an Area of Interest (AOI)
 
-You can use [geojson.io](http://geojson.io/]) to get geometry coordinates for an area that interests you, start small : ) 
+You can use [geojson.io](http://geojson.io/]) to get geometry coordinates for an area that interests you. Start small : ) 
 
-Here's an AOI around a Reservoir near Redding California
+Here's an AOI around a Reservoir near Redding California (see geometry below).
 
 ![geojson](../images/geojson1.png)
 
@@ -51,11 +53,11 @@ The highlighted JSON is a [GeoJSON geometry object](http://geojson.org/geojson-s
 <a name="filters"></a>
 ## Filters
 
-Several Planet API endpoints operate on filters, which can be used to narrow down imagery by a variety of attributes like location, cloud coverage %, acquisition date etc.
+Several Planet API endpoints operate on filters, which can be used to narrow down imagery by a variety of attributes like location, cloud cover percentage, acquisition date, etc.
 
 At this point, it will be easier if we start using Python to interact with the API. The runnable source file for all code snippets will be linked above each snippet.
 
-Let's define some filters
+Let's define some filters. We'll use them later on to run actual queries.
 
 [examples/demo_filters.py](../examples/demo_filters.py)
 
@@ -126,8 +128,7 @@ redding_reservoir = {
 <a name="stats"></a>
 ## Stats Endpoint
 
-A good first step would be to use our filter to query the stats endpoint, this will give us a date
-bucketed histogram to show us how many items match our filter
+A good first step would be to use our filter to query the stats endpoint. This will give us a date-bucketed histogram to show us how many items match our filter.
 
 [examples/stats_endpoint.py](../examples/stats_endpoint.py)
 
@@ -194,7 +195,7 @@ Nice! We can see that in July 2016, RapidEye satellites imaged the area on 5 dif
 <a name="search"></a>
 ## Search Endpoint
 
-Now let's do a search, this takes the same filter object as the stats endpoint but returns complete metadata objects about the matching items.
+Now let's do a search. This takes the same filter object as the stats endpoint but returns complete metadata objects about the matching items.
 
 [examples/search_endpoint.py](../examples/search_endpoint.py)
 

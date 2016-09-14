@@ -28,6 +28,7 @@ These tutorials use the following tools:
  
  * Python 2
  * [requests](http://docs.python-requests.org/en/master/) - (pip install requests)
+ * [retrying](https://github.com/rholder/retrying) - (pip install retrying)
  * cURL
  * [jq](https://stedolan.github.io/jq/) - a very useful command line tool for maniuplating and displaying JSON.
  * (optional) [geojsonio-cli](https://github.com/mapbox/geojsonio-cli) - quickly view geometries in geojson.io

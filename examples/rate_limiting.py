@@ -35,6 +35,6 @@ parallelism = 50
 thread_pool = ThreadPool(parallelism)
 
 with open('examples/1000_PSOrthoTile_ids.txt') as f:
-    item_ids = f.read().splitlines()[:400] # only grab 100
+    item_ids = f.read().splitlines()[:400] # only grab 400
 
 thread_pool.map(activate_item, item_ids)

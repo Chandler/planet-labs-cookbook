@@ -2,7 +2,7 @@
 
 # Large AOI Best Practices
 
-Using the Planet API against a large AOI can be tricky, you will find that it's a fine balance between going too slow and you quickly hit API rate limits. Here are some common patterns for dealing with a large amount of items.
+Using the Planet API against a large AOI can be tricky, you will find that it's a fine balance between going too slow vs. quickly hitting API rate limits. Here are some common patterns for dealing with a large amount of items.
 
 * [Paginate Through a Large Search](#paginate)
 * [Parallelising Requests](#parallel)
@@ -196,7 +196,7 @@ parallelism = 50
 thread_pool = ThreadPool(parallelism)
 
 with open('examples/1000_PSOrthoTile_ids.txt') as f:
-    item_ids = f.read().splitlines()[:400] # only grab 100
+    item_ids = f.read().splitlines()[:400] # only grab 400
 
 thread_pool.map(activate_item, item_ids)
 ```
@@ -214,6 +214,7 @@ activation succeeded for item 217416_1761714_2016-07-01_0c2b
  attempting to activate: 217416_1761712_2016-07-01_0c2b
 attempting to activate: 217416_1962820_2016-07-01_0c2b
 activation succeeded for item 217416_1153521_2016-07-01_0c2b
+...
 ```
 
-
+Note that the `retrying` packages handles the `402` exceptions, which is why you don't see the error messages.

@@ -4,7 +4,7 @@ See [part 1](intro_part_1_search.md) for instructions on using this guide and ac
 
 This tutorial will walk you through how to download your first image from the API. 
 
-Downloading a large amount of imagery from our API can be tricky, when you're done with this tutorial you may want to check this out: [Large AOI Best Practices](large_aoi_best_practices.md)
+Downloading a large amount of imagery from our API can be tricky. So when you're done with this tutorial you may want to check this out: [Large AOI Best Practices](large_aoi_best_practices.md)
 
 * [Accessing a Single Item](#single)
 * [Asset Types](#types)
@@ -23,7 +23,7 @@ ItemType: REOrthoTile
 ItemId: 20160707_195147_1057916_RapidEye-1
 ```
 
-An easy way to visualize this item before we download it is to extract it's footprint and view the geometry on geojson.io:
+An easy way to visualize this item before we download it is to extract its footprint and view the geometry on geojson.io:
 
 ```sh
 curl -L -H "Authorization: api-key $PLANET_API_KEY" \
@@ -56,7 +56,7 @@ curl -L -H "Authorization: api-key $PLANET_API_KEY" \
 ]
 ```
 
-The `analytic` type is appropriate for scientific analysis (technically it's a radiance product, and also includes near-infrared data if available), while the types with `_xml` are XML metadata files for those who need it. `udm` is a `usable data mask` that tells you which pixels in an image are actually useful (cloudy pixels aren't, for example). A `visual` product only includes red, green and blue data, and has been color corrected for use in web mapping applications.
+The `analytic` type is appropriate for scientific analysis (technically it's a radiance product, and also includes near-infrared data if available), while the types ending in `_xml` are XML metadata files for those who need it. `udm` is a `usable data mask` that tells you which pixels in an image are actually useful (cloudy pixels aren't, for example). A `visual` product includes red, green and blue bands, and has been color corrected for use in web mapping applications.
 
 <a name="activate"></a>
 ## Asset Activation

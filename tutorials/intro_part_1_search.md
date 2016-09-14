@@ -128,8 +128,7 @@ redding_reservoir = {
 <a name="stats"></a>
 ## Stats Endpoint
 
-A good first step would be to use our filter to query the stats endpoint. This will give us a date
-bucketed histogram to show us how many items match our filter.
+A good first step would be to use our filter to query the stats endpoint. This will give us a date-bucketed histogram to show us how many items match our filter.
 
 [examples/stats_endpoint.py](../examples/stats_endpoint.py)
 

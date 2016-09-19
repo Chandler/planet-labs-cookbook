@@ -59,7 +59,7 @@ Let's start with the `redding_reservoir` query that we used in [part 1](intro_pa
 }
 ```
 
-Using the [download.py](download.py) script, which has a simple command line interface, we'll be able to go from searching for imagery, activating it, checking the status of activation, and downloading each file.
+Using the [download.py](../examples/download.py) script, which has a simple command line interface, we'll be able to go from searching for imagery, activating it, checking the status of activation, and downloading each file.
 
 To start, let's look at the CLI using the `--help` flag:
 

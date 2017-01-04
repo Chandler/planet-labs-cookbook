@@ -68,10 +68,19 @@ def check_activation(item_id, item_type, asset_type):
     wait_exponential_multiplier=1000,
     wait_exponential_max=10000)
 def download(url, path, item_id, asset_type, overwrite):
-    if asset_type.endswith('xml'):
-        fname = '{}_{}.xml'.format(item_id, asset_type.split('_')[0])
-    else:
-        fname = '{}_{}.tif'.format(item_id, asset_type)
+    # select the correct extension and simplify the asset type for filename
+    # based on the asset types listed at https://api.planet.com/data/v1/asset-types/
+    # and https://www.planet.com/docs/spec-sheets/sat-imagery/
+    # as of 2017-01-04
+    extension = 'tif'
+    at_edited = asset_type
+    if 'nitf' in asset_type:
+        at_edited = at_edited.replace('_nitf', '')
+        extension = 'ntf'
+    if 'xml' in asset_type or 'rpc' in asset_type or 'sci' in asset_type:
+        at_edited = at_edited.replace('_xml', '')
+        extension = 'xml'
+    fname = '{}_{}.{}'.format(item_id, at_edited, extension)
     local_path = os.path.join(path, fname)
 
     if not overwrite and os.path.exists(local_path):

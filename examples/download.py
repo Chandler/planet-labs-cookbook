@@ -68,7 +68,10 @@ def check_activation(item_id, item_type, asset_type):
     wait_exponential_multiplier=1000,
     wait_exponential_max=10000)
 def download(url, path, item_id, asset_type, overwrite):
-    fname = '{}_{}.tif'.format(item_id, asset_type)
+    if asset_type.endswith('xml'):
+        fname = '{}_{}.xml'.format(item_id, asset_type.split('_')[0])
+    else:
+        fname = '{}_{}.tif'.format(item_id, asset_type)
     local_path = os.path.join(path, fname)
 
     if not overwrite and os.path.exists(local_path):

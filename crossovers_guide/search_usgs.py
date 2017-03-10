@@ -12,10 +12,10 @@ scenes = \
         'EO1_HYP_PUB',
         'EE',
         api_key=usgs_api_key,
-        start_date='2017-01-01',
-        end_date='2017-02-01',
+        start_date='2017-02-01',
+        end_date='2017-03-01',
         extended=True)
 
-with open(sys.argv[1]) as f:
+with open(sys.argv[1], "w") as f:
     f.write(json.dumps(scenes))
 

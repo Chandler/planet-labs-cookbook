@@ -11,18 +11,8 @@ from subprocess import call
 input_path = sys.argv[1]
 output_dir = sys.argv[2]
 
-
 if not os.path.exists(output_dir):
   os.makedirs(output_dir)
-
-# # imagemagick convert
-# convert EO1H1110822017001110K2.jpg normal.tif
-# geotifcp -e EO1H1110822017001110K2.wld normal.tif geo.tif
-# rio merge geo.tif planet.tif --output merge.tif
-
-# with open(input_path) as f:
-#     crossovers = json.loads(f.read())
-
 
 def download_hyperion_browse(id, output_dir):
   if not os.path.exists(output_dir):
@@ -109,7 +99,6 @@ def merge_images(item_output_dir, hyperion_id, crossovers):
     for cmd in cmds:
         print "running {}".format(cmd)
         call(cmd.split(" "))
-
     os.chdir(current_dir)
 
 with open(input_path) as f:
@@ -118,18 +107,19 @@ with open(input_path) as f:
         id = crossover_group["usgs_id"]
         item_output_dir = "{}/{}".format(output_dir, id)
 
-        # download_hyperion_browse(id, "{}/{}".format(output_dir, id))
+        download_hyperion_browse(id, "{}/{}".format(output_dir, id))
 
         for crossover in crossover_group["crossovers"]:
             item_id = crossover["id"]
             item_type = crossover["properties"]["item_type"]
-            # download_planet_browse(
-            #     item_type,
-            #     item_id,
-            #     os.environ["PLANET_API_KEY"],
-            #     500,
-            #     item_output_dir
-            # )
+
+            download_planet_browse(
+                item_type,
+                item_id,
+                os.environ["PLANET_API_KEY"],
+                500,
+                item_output_dir
+            )
 
             path = "{}/{}_{}.png".format(item_output_dir, item_type, item_id)
             image = Image.open(path)

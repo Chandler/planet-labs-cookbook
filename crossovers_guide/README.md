@@ -1,5 +1,7 @@
 This project contains tooling for finding satellite crossovers. For a complete explanation see the blog post
 
+This is not ~quality software~ or a real tool, it's just a few scripts
+
 
 Run everything like this:
 
